@@ -1,0 +1,29 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  color: #000;
+  background-color: #fff;
+}
+
+.capitol-story-container {
+  margin: 8px;
+}
+
+input {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: #000;
+}
+
+button {
+  background-color: rgb(29, 118, 243);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
