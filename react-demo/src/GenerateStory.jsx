@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-import { generateStory } from '@capitol.ai/react';
-import { v4 as uuidv4 } from 'uuid';
 import capitol from '/capitol.svg';
 
 const GenerateStory = ({ query, setQuery, callbackOnSubmit }) => {
@@ -35,17 +32,8 @@ const GenerateStory = ({ query, setQuery, callbackOnSubmit }) => {
     userUrls: [],
     userPdfDocuments: [],
     userPdfUrls: [],
-    userImages: []
-  };
-
-  const handleClick = async () => {
-    const story = await generateStory({
-      storyId: uuidv4(),
-      userPrompt: query,
-      storyPlanConfig: config
-    });
-
-    callbackOnSubmit(story.externalId);
+    userImages: [],
+    userQuery: query
   };
 
   return (
@@ -64,7 +52,7 @@ const GenerateStory = ({ query, setQuery, callbackOnSubmit }) => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder='Enter a topic here'
         />
-        <button onClick={handleClick}>generate story</button>
+        <button onClick={callbackOnSubmit}>generate story</button>
       </div>
       <p>
         <a href='https://capitol.ai'>
