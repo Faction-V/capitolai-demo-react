@@ -17,6 +17,42 @@ function App() {
   const [query, setQuery] = useState('');
   const handleCallback = () => setCurrentStoryId(uuidv4());
 
+  // update story generation settings by providing custom config
+  const config = {
+    format: 'auto_mode',
+    cot: false,
+    audience: 'General',
+    responseLength: '3 pages',
+    responseLanguage: 'english',
+    heroImage: false,
+    title: true,
+    headers: true,
+    paragraphs: true,
+    images: false,
+    aiImages: false,
+    imageStyle: 'auto',
+    aiGraphs: false,
+    webGraphs: false,
+    metrics: false,
+    tables: false,
+    quotes: false,
+    tweets: false,
+    tweetCharacterLimit: 280,
+    generalWebSearch: true,
+    academicWebSearch: false,
+    usePerplexity: true,
+    ragBudget: 'default',
+    customInstructions: '',
+    imageHeight: 768,
+    imageWidth: 1344,
+    responseModel: 'claude-3-5-sonnet-20240620',
+    userUrls: [],
+    userPdfDocuments: [],
+    userPdfUrls: [],
+    userImages: [],
+    userQuery: query
+  };
+
   return (
     <CapitolAiWrapper>
       {!currentStoryId ? (
@@ -37,6 +73,7 @@ function App() {
           enableHeaderMenu={false}
           enabledFeedback={false}
           trailingBlock={false}
+          formatCustomConfigs={config}
           tags={tags}
         />
       )}
