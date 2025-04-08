@@ -25,20 +25,7 @@ export const customConfig = {
   usePerplexity: true,
   ragBudget: 'default',
   customInstructions: '',
-  imageHeight: 768,
-  imageWidth: 1344,
   responseModel: 'claude-3-5-sonnet-20240620',
-  userUrls: [],
-  userPdfDocuments: [],
-  userPdfUrls: [],
-  userImages: [],
-  userPreProcessedSources: [],
-  callbacks: {
-    postUploadIngestion: {
-      addAddendums: true,
-      checkSourceRelevance: true
-    }
-  }
 };
 
 export const fetchData = async (query) => {
@@ -56,17 +43,17 @@ export const fetchData = async (query) => {
         'X-User-ID': 1
       },
       body: JSON.stringify({
-        'story-id': uuidv4(),
+        // 'story-id': uuidv4(),
         'source-ids': [],
         'user-config-params': { ...customConfig, userQuery: query },
-        tags: [
-          {
-            company_id: 777
-          },
-          {
-            option_we_want_to_include: true
-          }
-        ]
+        // tags: [
+        //   {
+        //     company_id: 777
+        //   },
+        //   {
+        //     option_we_want_to_include: true
+        //   }
+        // ]
       })
     });
     
