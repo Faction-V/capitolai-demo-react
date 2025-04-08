@@ -39,8 +39,7 @@ export const fetchData = async (query) => {
       headers: {
         'Content-Type': 'application/json',
         'X-Domain': import.meta.env.VITE_API_DOMAIN,
-        'X-API-Key': import.meta.env.VITE_API_KEY,
-        'X-User-ID': 1
+        'X-API-Key': import.meta.env.VITE_API_KEY
       },
       body: JSON.stringify({
         'source-ids': [],
