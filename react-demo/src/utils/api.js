@@ -15,17 +15,17 @@ export const customConfig = {
   imageStyle: 'auto',
   aiGraphs: false,
   webGraphs: false,
-  metrics: false,
-  tables: false,
+  metrics: true,
+  tables: true,
   quotes: false,
   tweets: false,
   tweetCharacterLimit: 280,
   generalWebSearch: true,
   academicWebSearch: false,
-  usePerplexity: true,
+  usePerplexity: false,
   ragBudget: 'default',
   customInstructions: '',
-  responseModel: 'claude-3-5-sonnet-20240620',
+  responseModel: 'claude-3-7-sonnet-20250219'
 };
 
 export const fetchData = async (query) => {
@@ -43,22 +43,21 @@ export const fetchData = async (query) => {
         'X-User-ID': 1
       },
       body: JSON.stringify({
-        // 'story-id': uuidv4(),
         'source-ids': [],
         'user-config-params': { ...customConfig, userQuery: query },
-        // tags: [
-        //   {
-        //     company_id: 777
-        //   },
-        //   {
-        //     option_we_want_to_include: true
-        //   }
-        // ]
+        tags: [
+          {
+            company_id: 777
+          },
+          {
+            option_we_want_to_include: true
+          }
+        ]
       })
     });
-    
+
     if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
     const result = await response.json();
