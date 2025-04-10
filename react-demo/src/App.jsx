@@ -41,6 +41,7 @@ function App() {
     generalWebSearch: true,
     academicWebSearch: false,
     usePerplexity: true,
+    useDowJones: true,
     ragBudget: 'default',
     customInstructions: '',
     imageHeight: 768,
